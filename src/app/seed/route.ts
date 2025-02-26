@@ -17,7 +17,7 @@ async function seedCountries() {
     countries.map(async (country) => {
       //const hashedPassword = await bcrypt.hash(country.password, 10);
       return client.sql`
-        INSERT INTO users (id, name)
+        INSERT INTO countries (id, name)
         VALUES (${country.id}, ${country.name})
         ON CONFLICT (id) DO NOTHING;
       `;
