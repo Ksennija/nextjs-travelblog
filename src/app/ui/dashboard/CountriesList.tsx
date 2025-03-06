@@ -1,5 +1,7 @@
 //import { lusitana } from "@/app/ui/fonts";
 import { Country } from "@/app/lib/definitions";
+import Image from "next/image";
+import styles from "./CountriesList.module.css";
 
 // This component is representational only.
 // For data visualization UI, check out:
@@ -17,17 +19,25 @@ export default async function CountriesList({
   }
 
   return (
-    <div className="w-full md:col-span-4">
+    <div className={styles.listingSection}>
       {/* <h2 className={`${lusitana.className} mb-4 text-xl md:text-2xl`}>
         Recent Revenue
       </h2> */}
 
       {countries.map((country) => (
-        <div key={country.id} className="flex flex-col items-center gap-2">
-          <div className="w-full rounded-md bg-blue-300"></div>
-          <p className="-rotate-90 text-sm text-gray-400 sm:rotate-0">
-            {country.name}
-          </p>
+        <div key={country.id} className={styles.country}>
+          <div className={styles.imageBox}>
+            <Image
+              className={styles.images}
+              src={country.src}
+              width={500}
+              height={250}
+              alt={country.alt}
+            />
+          </div>
+          <div className={styles.textBox}>
+            <p className={styles.item}>{country.name}</p>
+          </div>
         </div>
       ))}
     </div>

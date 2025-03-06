@@ -6,6 +6,8 @@
 export type Country = {
   id: string;
   name: string;
+  src: string;
+  alt: string;
 };
 
 export type User = {
